@@ -5,10 +5,9 @@
 @section('content')
 		<h1>listado de usuarios</h1>
 
-		<table class="table table-bordered table-hover">
+		<table class="table table-hover">
 			<thead class="thead-dark">
 				<tr>
-					<th>Id</th>
 					<th>Imagen</th>
 					<th>Nombre</th>
 					<th>Username</th>
@@ -20,7 +19,6 @@
 			<tbody>
 				@foreach($usuarios as $usuario)
 					<tr onclick="location.href='/usuario/{{$usuario->slug}}';">
-						<td>{{$usuario->id}}</td>
 						<td><img src="img/usuario/{{$usuario->avatar}}" style="height: 100px;"></td>
 						<td>{{$usuario->name}}</td>
 						<td>{{$usuario->username}}</td>
