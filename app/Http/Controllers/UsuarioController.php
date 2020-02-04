@@ -36,6 +36,13 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'avatar'=>'required|image',
+            'name'=>'required',
+            'username'=>'required',
+            'email'=>'required',
+            'password'=>'required|min: 8'
+        ]);
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $name = time().$file->getClientOriginalName();
