@@ -44,11 +44,14 @@ class UsuarioController extends Controller
         $usuario = new Usuario();
         $usuario->name = $request->input('name');
         $usuario->username = $request->input('username');
+        $usuario->slug = $request->input('username');
         $usuario->email = $request->input('email');
         $usuario->password = $request->input('password');
         $usuario->avatar = $name;
         $usuario->save();
-        return 'guardado';
+        $usuarios = Usuario::all();
+        return view('usuario.index',compact('usuarios'));
+        
     }
 
     /**
@@ -57,9 +60,11 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Usuario $usuario)
     {
-        //
+
+        //$usuario = Usuario::where('slug','=',$slug)->firstOrFail();
+        return view('usuario.show',compact('usuario'));
     }
 
     /**
@@ -68,9 +73,9 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Usuario $usuario)
     {
-        //
+        return view('usuario.edit',compact('usuario'));
     }
 
     /**
@@ -80,9 +85,17 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Usuario $usuario)
     {
-        //
+        $usuario->fill($request->except('avatar'));
+        if($request->hasFile('avatar')){
+            $file = $request->file('avatar');
+            $name = time().$file->getClientOriginalName();
+            $usuario->avatar=$name;
+            $file->move(public_path().'/img/usuario/',$name);
+        }
+        $usuario->save();
+        return 'Actualizado';
     }
 
     /**
@@ -95,4 +108,17 @@ class UsuarioController extends Controller
     {
         //
     }
+
+    public function login(Request $request)
+    {
+
+        $usuario = Usuario::where('username or email','=',$request->input('username'))->where('password','=','password');
+        if($usuario->length() >= 1){
+            return view('welcome');
+        }
+        else{
+            return view('login');
+        }
+    }
+
 }

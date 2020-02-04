@@ -8,7 +8,7 @@
 <body>
 	<div class="login-box bounceIn">
 		<img class="avatar" src="{{URL::asset('img/login/logo.jpg')}}" alt="logo-whale">
-		<form>
+		<form method="POST" action="/usuario">
 			<label for="username"><span>*</span>Username</label>
 			<input type="text" name="username" placeholder="Ingrese su usuario">
 			<label for="password"><span>*</span>Contraseña</label>
