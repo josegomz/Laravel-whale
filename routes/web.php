@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
+});
+
+Route::resource('usuario','UsuarioController');
+
+Route::get('/login', function (){
+	return view('login');
+});
+
+Route::get('/home', function (){
+	return view('welcome');
 });
