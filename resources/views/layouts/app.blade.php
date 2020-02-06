@@ -3,6 +3,7 @@
 	<title>Whale -  @yield('title')</title>
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/font-awesome.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/whale.css')}}">
 	<script type="text/javascript" src="{{ URL::asset('js/jquery-3.3.1.min.js')}}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/bootstrap.js')}}"></script>
 
@@ -20,8 +21,6 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container">
-		@yield('content')
-	</div>
+	@yield('content')
 </body>
 </html>
