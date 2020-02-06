@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Whale - Login</title>
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/login.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/animate.css')}}">
 </head>
