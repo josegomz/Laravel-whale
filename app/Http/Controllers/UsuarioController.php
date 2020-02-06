@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Usuario;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUsuarioRequest;
 
 class UsuarioController extends Controller
 {
@@ -34,21 +35,14 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUsuarioRequest $request)
     {
-        $validatedData = $request->validate([
-            'avatar'=>'required|image',
-            'name'=>'required',
-            'username'=>'required',
-            'email'=>'required',
-            'password'=>'required|min: 8'
-        ]);
+        $usuario = new Usuario();
         if($request->hasFile('avatar')){
             $file = $request->file('avatar');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/img/usuario/',$name);
         }
-        $usuario = new Usuario();
         $usuario->name = $request->input('name');
         $usuario->username = $request->input('username');
         $usuario->slug = $request->input('username');
@@ -56,9 +50,7 @@ class UsuarioController extends Controller
         $usuario->password = $request->input('password');
         $usuario->avatar = $name;
         $usuario->save();
-        $usuarios = Usuario::all();
-        return view('usuario.index',compact('usuarios'));
-        
+        return redirect()->route('usuario.index')->with('status','Usuario creado correctamente');
     }
 
     /**
@@ -69,7 +61,6 @@ class UsuarioController extends Controller
      */
     public function show(Usuario $usuario)
     {
-
         //$usuario = Usuario::where('slug','=',$slug)->firstOrFail();
         return view('usuario.show',compact('usuario'));
     }
@@ -102,7 +93,7 @@ class UsuarioController extends Controller
             $file->move(public_path().'/img/usuario/',$name);
         }
         $usuario->save();
-        return 'Actualizado';
+        return redirect()->route('usuario.index')->with('status','Usuario editado correctamente');
     }
 
     /**
@@ -111,9 +102,12 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Usuario $usuario)
     {
-        //
+        $file_path = public_path().'/img/usuario/'.$usuario->avatar;
+        \File::delete($file_path);
+        $usuario->delete();
+        return redirect()->route('usuario.index')->with('status','Usuario eliminado correctamente');
     }
 
     public function login(Request $request)
