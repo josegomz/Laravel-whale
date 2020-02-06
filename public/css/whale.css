@@ -1,0 +1,27 @@
+.fondo-oaxaca{
+	background: url(../img/whale/oaxaca.jpg) no-repeat center top;
+	background-attachment: fixed;
+	background-size:cover;
+	height: 100vh;
+
+}
+/*modificacion de los colores para nuestro proyecto*/
+.bg-primary{
+	background-color: rgb(33,166,134) !important;
+}
+
+.btn-primary{
+	background-color: rgb(33,166,134) !important;
+	border-color: rgb(33,166,134) !important;
+}
+.btn-secondary{
+	background-color: rgb(107,111,111) !important;
+	border-color: rgb(107,111,111) !important;	
+}
+
+.text-bold{
+	font-weight: bold;
+}
+.bg-table{
+	background-color: rgba(255,255,255,0.);
+}
