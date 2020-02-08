@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateZonaturisticasTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateZonaturisticasTable extends Migration
      */
     public function up()
     {
-        Schema::create('zonaturisticas', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('image');
-            $table->string('location');
-            $table->string('description');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateZonaturisticasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zonaturisticas');
+        Schema::dropIfExists('roles');
     }
 }
