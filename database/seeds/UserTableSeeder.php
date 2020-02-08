@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Role;
+use App\User;
+
 
 class UserTableSeeder extends Seeder
 {
@@ -11,6 +14,8 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $role_user  = Role::where('name','user')->first(); 
+        $role_admin  = Role::where('name','admin')->first(); 
+
     }
 }
