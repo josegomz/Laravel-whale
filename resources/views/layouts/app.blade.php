@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm fixed-top ">
             <div class="container">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -36,7 +36,10 @@
                         @guest
                         @else
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/usuario">{{ __('usuario') }}</a>
+                                <a class="nav-link text-white" href="/hotel">{{ __('Hoteles') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/zonaturistica">{{ __('Lugares turisticos') }}</a>
                             </li>
                         @endguest
                     </ul>
@@ -63,7 +66,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Salir') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -77,7 +80,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" style="margin-top: 50px;">
             @yield('content')
         </main>
     </div>

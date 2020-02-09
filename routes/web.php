@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::resource('usuario','UsuarioController');
+Route::resource('hotel','HotelController');
+Route::resource('zonaturistica','ZonaturisticaController');
+
 
 Auth::routes();
 
