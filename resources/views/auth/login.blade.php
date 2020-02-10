@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm- col-md- col-lg-6">
-            <div class="card bounceIn">
+            <div class="card">
                 <div class="card-header text-center"><b>{{ __('Login') }}</b></div>
 
                 <div class="card-body">

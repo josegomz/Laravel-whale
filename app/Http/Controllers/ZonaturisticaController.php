@@ -24,8 +24,9 @@ class ZonaturisticaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $request->user()->authorizeRoles(['admin']);   
         return view('zonaturistica.create');
     }
 
@@ -68,8 +69,9 @@ class ZonaturisticaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Zonaturistica $zonaturistica)
+    public function edit(Zonaturistica $zonaturistica,Request $request)
     {
+        $request->user()->authorizeRoles(['admin']);   
         return view('zonaturistica.edit',compact('zonaturistica'));
     }
 
@@ -99,8 +101,9 @@ class ZonaturisticaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Zonaturistica $zonaturistica)
+    public function destroy(Zonaturistica $zonaturistica,Request $request)
     {
+        $request->user()->authorizeRoles(['admin']);   
         $file_path = public_path().'/img/zonaturistica/'.$zonaturistica->image;
         \File::delete($file_path);
         $zonaturistica->delete();

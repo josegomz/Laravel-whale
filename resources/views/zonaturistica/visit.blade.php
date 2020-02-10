@@ -5,7 +5,7 @@
 @section('content')
 	<div class="container">
         @include('common.success')
-        <a href="#" class="btn btn-primary">mis visitas</a>
+        <a href="myvisits" class="btn btn-primary">mis visitas</a>
         <div class="row">
         	@foreach($zonaturisticas as $zonaturistica)
             <div class="col-sm">
