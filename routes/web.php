@@ -12,15 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('welcome');
 });
 
-Route::resource('usuario','UsuarioController');
+Route::get('/myvisits','VisitController@list');
+Route::get('/myreservations','ReservationController@list');
 
-Route::get('/login', function (){
-	return view('login');
-});
+Route::resource('reservation','ReservationController');
+Route::resource('visit','VisitController');
+Route::resource('hotel','HotelController');
+Route::resource('zonaturistica','ZonaturisticaController');
 
-Route::get('/home', function (){
-	return view('welcome');
-});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

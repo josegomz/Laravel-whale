@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Hotel extends Model
+class Role extends Model
 {
-    protected $fillable = ['name','image','services','location','price'];
-
+	/*relacion muchos a muchos con el usuario*/
     public function users(){
         return $this->belongsToMany('App\User');
     }

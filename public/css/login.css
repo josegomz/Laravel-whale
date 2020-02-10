@@ -6,67 +6,6 @@ body{
 	font-family: sans-serif;
 	height: 100vh;
 }
-.login-box{
-	width: 320px;
-	height: 400px;
-	background: rgba(0,0,0,0.8);
-	color: #fff;
-	top: calc(50% - 200px);
-	left: calc(50% - 160px);
-	position: absolute;
-	box-sizing: border-box;
-	padding: 100px 30px;
-}
-.login-box .avatar{
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	position: absolute;
-	top: -75px;
-	left: calc(50% - 75px);
-}
-
-.login-box label{
-	margin: 0;
-	padding: 0;
-	font-weight: bold;
-	display: block;
-	font-size: 20px;
-}
-
-.login-box input{
-	width: 100%;
-	margin-bottom: 20px;
-}
-
-.login-box input[type="text"],
-.login-box input[type="password"]{
+.card{
 	border:none;
-	border-bottom: 1px solid rgb(33,166,134);
-	background: transparent;
-	font-weight: bold;
-	outline: none;
-	height: 40px;
-	color: #fff;	
-	font-size:15px;
 }
-.login-box input[type="submit"]{
-	border:none;
-	font-weight: bold;
-	font-size: 15px;
-	outline: none;
-	color: #fff;
-	background-color: rgb(33,166,134);
-	height: 40px;
-}
-
-.login-box a{
-	text-decoration: none;
-	font-size: 12px;
-	line-height: 20px;
-	color: darkgrey;
-}
-.login-box label span{
-	color: red;
-}
-
