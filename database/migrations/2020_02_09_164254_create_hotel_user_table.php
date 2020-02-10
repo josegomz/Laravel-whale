@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSlugToUsuarios extends Migration
+class CreateHotelUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddSlugToUsuarios extends Migration
      */
     public function up()
     {
-        Schema::table('usuarios', function (Blueprint $table) {
-            $table->string('slug')->unique();
+        Schema::create('hotel_user', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('hotel_id')->unsigned();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddSlugToUsuarios extends Migration
      */
     public function down()
     {
-        Schema::table('usuarios', function (Blueprint $table) {
-            $table->dropColumn('slug');
-        });
+        Schema::dropIfExists('hotel_user');
     }
 }

@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('usuario','UsuarioController');
+//Route::get('/reservation','ReservationController@index');
+
+Route::resource('reservation','ReservationController');
+Route::resource('visit','VisitController');
 Route::resource('hotel','HotelController');
 Route::resource('zonaturistica','ZonaturisticaController');
 

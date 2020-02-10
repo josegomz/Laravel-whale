@@ -38,12 +38,19 @@
                     <ul class="navbar-nav mr-auto">
                         @guest
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="/hotel">{{ __('Hoteles') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="/zonaturistica">{{ __('Lugares turisticos') }}</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="/hotel">{{ __('Hoteles') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="/zonaturistica">{{ __('Lugares turisticos') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="/reservation">{{ __('Hacer reservación') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="/visit">{{ __('Visitar un lugar') }}</a>
+                                </li>
+
                         @endguest
                     </ul>
 

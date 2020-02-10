@@ -10,6 +10,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    /*relacion muchos a muchos con las zonas turisticas*/
+    public function zonaturisticas()
+    {
+        return $this->belongsToMany('App\Zonaturistica');
+    }
+
+    /*relacion muchos a muchos con los hoteles*/
+    public function hotels()
+    {
+        return $this->belongsToMany('App\Hotel');
+    }
     /*relacion muchos a muchos con roles*/
     public function roles(){
         return $this->belongsToMany('App\Role');
